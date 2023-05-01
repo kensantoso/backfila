@@ -69,6 +69,9 @@ object Dependencies {
   val miskService = "com.squareup.misk:misk-service:${Versions.misk}"
   val miskSlack = "com.squareup.misk:misk-slack:${Versions.misk}"
   val miskTesting = "com.squareup.misk:misk-testing:${Versions.misk}"
+  val sqldelightGradlePlugin = "app.cash.sqldelight:gradle-plugin:${Versions.sqldelight}" // Do I need this?
+  val sqldelightJdbcDriver = "app.cash.sqldelight:jdbc-driver:${Versions.sqldelight}"
+  val sqldelightMysqlDialect = "app.cash.sqldelight:mysql-dialect:${Versions.sqldelight}"
   val wireCompiler = "com.squareup.wire:wire-compiler:${Versions.wire}"
   val wireGradlePlugin = "com.squareup.wire:wire-gradle-plugin:${Versions.wire}"
   val wireMoshiAdapter = "com.squareup.wire:wire-moshi-adapter:${Versions.wire}"
@@ -84,10 +87,11 @@ object Versions {
   val flywayDBPlugin = "7.15.0"
   val jooqGenPlugin = "8.1"
   val jooq = "3.18.1"
-  val kotlin = "1.7.0"
+  val kotlin = "1.7.20"
   val kotlinCoroutines = "1.6.3"
   val ktlint = "0.47.1"
   val misk = "2023.06.16.113701-e039a80"
+  val sqldelight = "2.0.0-rc01"
   val wire = "4.4.2"
   val wisp = "1.3.8"
 }
