@@ -60,7 +60,7 @@ class BackfilaParametersOperator<T : Any>(
   private fun constructParameters(
     parameters: MutableMap<String, ByteString>,
   ): T {
-    val map = mutableMapOf<KParameter, Any>()
+    val map = mutableMapOf<KParameter, Any?>()
     for (parameter in constructor.parameters) {
       if (parameters.containsKey(parameter.name)) {
         val value = parameters[parameter.name]!!
@@ -83,6 +83,8 @@ class BackfilaParametersOperator<T : Any>(
             val defaultValue = defaultAnnotation.value
             map[parameter] = TYPE_CONVERTERS[parameter.type.jvmErasure]!!.invoke(defaultValue.encodeUtf8())
           }
+        } else if (!parameter.isOptional && parameter.type.isMarkedNullable) {
+          map[parameter] = null
         }
       }
     }
